@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room: MyString
+  introduce: MyString
+  fe: 1
+  image_name: MyString
+  user_id: MyString
+  user_idd: 1
+
+two:
+  room: MyString
+  introduce: MyString
+  fe: 1
+  image_name: MyString
+  user_id: MyString
+  user_idd: 1

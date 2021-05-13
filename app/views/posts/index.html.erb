@@ -1,0 +1,38 @@
+<div class="main users-index">
+  <div class="container">
+    <h1 class="users-heading"></h1>
+      <table>
+      <thead>
+        <tr>
+          <td>ルーム画像</td>
+          <td>ルーム名</td>
+          <td>ルーム紹介</td>
+          <td>料金</td>
+           <td>住所</td>
+          <td>作成日</td>
+        
+        </tr>
+      </thead>
+  
+
+  <div class="container">
+    <h1 class="users-heading">ルーム一覧</h1>
+    <% @posts.each do |post| %>
+    
+     <tr>
+  
+        <th>   <img class="post-left"src="<%= "/post_images/#{post.image_name}" %>"></th>
+     
+        <th><%= link_to(post.room, "/posts/#{post.id}") %></th>
+      　 <th><%= post.introduce %></th>
+        <th><%= post.fe %></th>　
+      　 <th><%= post.address %></th>
+        <th><%= post.created_at.to_s(:datetime_jp) %></th>
+      
+          </tr>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

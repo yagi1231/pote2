@@ -1,0 +1,68 @@
+
+
+.login-form p{
+    text-align: center;
+   padding-top:50px;
+}
+
+
+
+.login-form {
+ background-color:powderblue;
+ width:50%;
+ margin:0 auto;
+
+ text-align: center;
+ padding: 20px 30px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+}
+
+.signup-form p{
+   
+   padding-top:30px;
+  
+   
+}
+.signup-form {
+    background-color:powderblue;
+    width:50%;
+    margin:0 auto;
+    height:750px;
+    text-align: center;
+   }
+
+.form-heading {
+    text-align: center;
+    margin:0 auto;
+    font-size: 30px;
+    font-weight: 400;
+    border-bottom:powderblue solid 5px;
+    width:20%;
+    margin-top:100px;
+}
+
+.form-error {
+    text-align: center;
+    margin:0 auto;
+    font-size: 30px;
+    font-weight: 400;
+    background-color: red;
+    width:50%;
+}
+
+input[type="file"] {
+  margin-left:100px;
+}
+
+#photo {
+    margin-left:100px;
+}
+  
+input{
+    display: flex;
+    margin:0 auto;
+}
+
+

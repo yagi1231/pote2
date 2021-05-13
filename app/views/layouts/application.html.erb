@@ -1,16 +1,79 @@
 <!DOCTYPE html>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <html>
   <head>
-    <title>Pote2</title>
+    <title>Rails6</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
+  
+    <header>
+    <div class="hamburger-menu">
+        <input type="checkbox" id="menu-btn-check">
+        <label for="menu-btn-check" class="menu-btn"><span></span></label>  
+       
+      <div class="menu-content">
+ 
+         
+      <ul>
+         <% if @current_user %>
+          <li>
+            <a href="http://localhost:3000/tops"id="top-photo"> TOP</a> 
+          </li>
+          <li>
+            <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
+          </li>
+          <li>
+            <%= link_to("登録ルーム一覧", "/posts") %>
+          </li>
+          <li>
+            <%= link_to("ルーム登録", "/posts/new") %>
+          </li>
+          <li>
+            <%= link_to("ユーザー一覧", "/users") %>
+          </li>
+           </li>
+          <li>
+            <%= link_to("予約一覧", "/reservations") %>
+          </li>
+          <li>
+            <%= link_to("ログアウト", "/logout", {method: "post"}) %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to("新規登録", "/signup") %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "/login") %>
+          </li>
+        <% end %>
+         </ul>
+      </div>
+        </div>
+         </header>
+      
+        <div calss="search">
+         
+        <%= form_tag(posts_path, method: "get") do %>
+         <%= label_tag :room, "" %><%= text_field_tag :room, params[:room],{placeholder: "東京"} %>
+         <%= submit_tag "検索" %>
+         <% end %>  
+         </div> 
+    
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

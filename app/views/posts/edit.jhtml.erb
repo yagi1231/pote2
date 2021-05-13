@@ -1,0 +1,34 @@
+<div class="main users-edit">
+  <div class="container">
+    <div class="form-heading">ユーザー情報の編集</div>
+    <div class="form users-form">
+      <div class="form-body">
+　　　　　
+        <div class="signup-container">    
+        <div class="signup-width">
+        <div class="signup-form">
+           <%= form_tag("/posts/#{@post.id}/update", {multipart: true}) do %>
+        <p>ルーム名</p>
+    　　　　<input id="room-edit" name="room" value="<%= @post.room %>">
+          <p>ルーム説明</p>
+          <input name="introduce" value="<%= @post.introduce %>">
+           <p>金額</p>
+    　　　　<input name="address" value="<%= @post.address %>">
+    　　　　 <p>住所</p>
+    　　　　<input id="address-edit"name="fe" value="<%= @post.fe %>">
+          <p>写真</p>
+           <input name="image" type="file">
+        <p></p>
+   　　　　　<input type="submit" value="新規登録">
+          </div>
+        <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>

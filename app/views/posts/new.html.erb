@@ -1,0 +1,32 @@
+<div class="main users-new">
+  <div class="container">
+    <div class="form-heading">ルーム登録</div>
+    <div class="form users-form">
+      <div class="form-body">
+        
+  
+       <div class="login-container">
+        <div class="login-width">
+        <div class="login-form">
+           <%= form_tag("/posts/create", {multipart: true}) do %>
+          <p>ルーム名</p>
+    　　　　<input name="room" >
+          <p>ルーム説明</p>
+    　　　　<input  name="introduce" >
+           <p>金額</p>
+    　　　　<input name="fe" type="number">
+    　　　　 <p>住所</p>
+    　　　　<input name="address">
+          <p>写真</p>
+           <input name="image" type="file">
+           <p></p>
+   　　　　　<input type="submit" value="新規登録">
+             </div>
+            <% end %>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+      

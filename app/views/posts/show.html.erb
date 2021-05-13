@@ -1,0 +1,56 @@
+
+<div class="main user-show">
+  <div class="container">
+    <div class="post">
+     <div class="post-user-name">
+        <table>
+          <thead>
+             <tr>
+               <td>イメージ画像</td>
+               <td>ルーム名</td>
+               <td>ルーム説明</td>
+               <td>金額 </td>
+               <td>住所</td>
+             </tr>
+          </thead>
+         <tbody>
+      
+      
+       <tr>
+        <td><img class="show-photo"src="<%= "/post_images/#{@post.image_name}" %>"></td>
+        <th><%= @post.room%></th>
+        <th><%= @post.introduce%></th>
+        <th><%= @post.fe%></th>
+        <th><%= @post.address%></th>
+        </tr>
+      </table>
+
+          <%= form_tag("/reservations/new") do %>
+          
+          <p>金額</p>
+           <input id="fe" name="fe"value="<%=@post.fe%>"readonly>
+          <p>開始日</p>
+    　　　　<input id="start"name="start" type="date" >
+          <p>終了日</p>
+    　　　　<input  id="end"name="end" type="date" >
+          <p>人数</p>
+          　<input  id="end"name="num" type="number" >
+   　　　　　<input id="submit"type="submit" value="予約">
+             </div>
+            
+   
+            <% end %>
+       
+       <br>
+           <%= link_to("登録ルーム一覧", "/posts") %>
+       <br>
+       <% if @post.user_idd == @current_user.id %>
+       <div id="">
+  <p><%= link_to( "編集", "/posts/#{@post.id}/edit") %></p>
+<p><%= link_to("削除", :post,method: :delete,data:{confirm:"本当に削除しますか？"} )%></p>
+ <%end%>
+    </div>
+  </div>
+</div>
+</div>
+</div>
