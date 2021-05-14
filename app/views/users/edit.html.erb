@@ -1,0 +1,32 @@
+<div class="main users-new">
+  <div class="container">
+    <div class="form-heading">ユーザー編集</div>
+    <div class="form users-form">
+      <div class="form-body">
+        <% @user.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+        <div class="signup-container">
+        <div class="signup-width">
+        <div class="signup-form">
+      <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+        <p>ルーム名</p>
+          <p>ユーザー名</p>
+          <input name="name" value="<%= @user.name %>">
+          <p>メールアドレス</p>
+          <input name="email" value="<%= @user.email %>">
+           <p>紹介</p>
+          <input name="introduce" >
+          <p>写真</p>
+           <input name="image" type="file">
+          <input type="submit" value="新規登録">
+          </div>
+        <% end %>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>

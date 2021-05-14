@@ -1,0 +1,48 @@
+<div class="main user-show">
+  <div class="container-show">
+    <div class="user">
+      <img src="<%= "/user_images/#{@user.image_name}" %>">
+      <h2><%= @user.name %></h2>
+      <p><%= @user.email %></p>
+      <p><%= @user.introduce %></p>
+     <% if @user.id == @current_user.id %>
+        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+       
+        <%= link_to("削除", :user,method: :delete,data:{confirm:"本当に削除しますか？"} )%>
+      <% end %>
+        </div>
+        <table>
+          <thead>
+             <tr>
+               <td>イメージ画像</td>
+               <td>ルーム名</td>
+               <td>ルーム説明</td>
+               <td>金額 </td>
+               <td>住所</td>
+             </tr>
+          </thead>
+         <tbody>
+      <% @user.posts.each do |post| %>
+     
+      
+        <tr>
+          <td><img class="show-photo" src="<%= "/post_images/#{post.image_name}" %>"></td>
+        
+        <div class="post-right">
+         <th><%= link_to(post.room, "/posts/#{post.id}") %></th>
+        <th><%= link_to(post.user.introduce, "/users/#{post.user.id}") %></th>
+        <th><%= link_to(post.fe, "/posts/#{post.id}") %></th>
+        <th><%= link_to(post.address, "/posts/#{post.id}") %></th>
+        </div>
+       </tr>
+       </tbody>
+         <% end %>
+        </table>
+        
+      
+      
+
+  
+    
+  </div>
+</div>
