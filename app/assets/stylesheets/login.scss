@@ -1,29 +1,21 @@
 
 
 .login-form p{
-    text-align: center;
+   text-align: center;
    padding-top:50px;
 }
-
-
-
 .login-form {
- background-color:powderblue;
- width:50%;
- margin:0 auto;
-
- text-align: center;
- padding: 20px 30px;
-    background-color: white;
-    overflow: hidden;
-    box-shadow: 0 2px 6px #c1ced7;
+   background-color:powderblue;
+   width:50%;
+   margin:0 auto;
+   text-align: center;
+   padding: 20px 30px;
+   background-color: white;
+   overflow: hidden;
+   box-shadow: 0 2px 6px #c1ced7;
 }
-
 .signup-form p{
-   
-   padding-top:30px;
-  
-   
+   padding-top:30px; 
 }
 .signup-form {
     background-color:powderblue;
@@ -32,7 +24,6 @@
     height:750px;
     text-align: center;
    }
-
 .form-heading {
     text-align: center;
     margin:0 auto;
@@ -42,7 +33,6 @@
     width:20%;
     margin-top:100px;
 }
-
 .form-error {
     text-align: center;
     margin:0 auto;
@@ -51,15 +41,12 @@
     background-color: red;
     width:50%;
 }
-
 input[type="file"] {
-  margin-left:100px;
-}
-
-#photo {
     margin-left:100px;
 }
-  
+#photo {
+    margin-left:100px;
+} 
 input{
     display: flex;
     margin:0 auto;

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :posts do
+    collection do
+      get 'search'
+    end
+  end
 
 
   get 'tops/index'
@@ -30,5 +35,6 @@ Rails.application.routes.draw do
  
   post "reservations/new" => "reservations#new"
   post "reservations/create" => "reservations#create"
+  
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -3,30 +3,17 @@
   <div class="container">
     <div class="post">
      <div class="post-user-name">
-        <table>
-          <thead>
-             <tr>
-               <td>イメージ画像</td>
-               <td>ルーム名</td>
-               <td>ルーム説明</td>
-               <td>金額 </td>
-               <td>住所</td>
-             </tr>
-          </thead>
-         <tbody>
-      
-      
-       <tr>
-        <td><img class="show-photo"src="<%= "/post_images/#{@post.image_name}" %>"></td>
-        <th><%= @post.room%></th>
-        <th><%= @post.introduce%></th>
-        <th><%= @post.fe%></th>
-        <th><%= @post.address%></th>
-        </tr>
-      </table>
-
+       
+         <p id="head-form">予約フォーム</p>
+         <div class="login-container">
+        <div class="login-width">
+        <div class="login-form">
           <%= form_tag("/reservations/new") do %>
           
+         <p>イメージ画像</p>
+          <th><img name="image_name"class="show-photo"src="<%= "/post_images/#{@post.image_name}" %>"></th>
+         <p>ルーム名</p>
+          <input id="fe" name="room"value="<%=@post.room%>"readonly>
           <p>金額</p>
            <input id="fe" name="fe"value="<%=@post.fe%>"readonly>
           <p>開始日</p>
@@ -37,6 +24,10 @@
           　<input  id="end"name="num" type="number" >
    　　　　　<input id="submit"type="submit" value="予約">
              </div>
+             </div>
+             </div>
+             </div>
+
             
    
             <% end %>

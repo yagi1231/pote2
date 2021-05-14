@@ -31,7 +31,7 @@
             <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
           </li>
           <li>
-            <%= link_to("登録ルーム一覧", "/posts") %>
+            <%= link_to("予約ルーム一覧", "/posts") %>
           </li>
           <li>
             <%= link_to("ルーム登録", "/posts/new") %>
@@ -59,14 +59,20 @@
         </div>
          </header>
       
-        <div calss="search">
-         
-        <%= form_tag(posts_path, method: "get") do %>
-         <%= label_tag :room, "" %><%= text_field_tag :room, params[:room],{placeholder: "東京"} %>
-         <%= submit_tag "検索" %>
-         <% end %>  
-         </div> 
-    
+     <div calss="search">
+      　<%= search_form_for @search do |f| %>
+　　　　　    <%= f.label :room_or_address_or_introduce_cont_any, "検索",class: 'input-text'%>
+　　　　　    <%= f.search_field :room_or_address_or_introduce_cont_any,{placeholder: "エリア"}%>
+　　　　　    <div class="actions"><%= f.submit "検索" ,class: 'input-text'%></div>
+　　　　　<% end %>
+          <%= search_form_for @search do |f| %>
+　　　　　    <%= f.label :fe_matches, "検索",class: 'input-text'%>
+　　　　　    <%= f.number_field :fe_matches ,{placeholder: "金額"}%>
+　　　　　    <div class="actions"><%= f.submit "検索",class: 'input-text' %></div>
+　　　　　<% end %>
+ 
+
+　　　　　
 
     <% if flash[:notice] %>
       <div class="flash">

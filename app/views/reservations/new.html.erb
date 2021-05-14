@@ -11,17 +11,15 @@
            <%= form_tag("/reservations/create") do %>
        
           <p>開始日</p>
-    <input name="start" value="<%=@reservation.start%>"readonly>
-         
+    　　　　<input name="start" value="<%=@reservation.start%>"readonly>
           <p>終了日</p> 
-    <input name="end" value="<%=@reservation.end%>">
+    　　　<input name="end" value="<%=@reservation.end%>">
           <p>人数</p>
           <input name="num" type="number"value="<%=@reservation.num%>"readonly>
- 
-        <p>一泊あたり</p>　　
-       <input name="fe" value="<%=params[:fe]%>"readonly>
-       <p>料金</p>
-       <%= @reservation.money%>
+       　　 <p>一泊あたり</p>　　
+      　　 <input name="fe" value="<%=params[:fe]%>"readonly>
+      　　 <p>料金</p>
+       　　<%= @reservation.money%>
    　　　　　<input id="submit"type="submit" value="予約">
              </div>
             

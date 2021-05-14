@@ -1,13 +1,15 @@
 class PostsController < ApplicationController
   before_action :authenticate_user
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
-
-  
+  before_action :set_search
   def index
     @posts = Post.all
-    if params[:room].present?
-      @posts = @posts.get_by_name params[:room]
-      end
+      if params[:fe].present?
+        @posts = @posts.get_by_name params[:fe]
+      end  
+    @search = Post.ransack(params[:q])
+    @posts = @search.result
+
   end
 
   def show
@@ -26,6 +28,7 @@ def create
     introduce: params[:introduce],
     address: params[:address],
     fe: params[:fe],
+    room: params[:room],
     image_name: "default_user.jpg",
     user_idd: @current_user.id,
    
@@ -52,7 +55,7 @@ def update
   @post.room = params[:room]            
   @post.introduce = params[:introduce]  
   @post.address = params[:address]            
-  @post.fee = params[:fee]  
+  @post.fe = params[:fe]  
   if params[:image]
     @post.image_name = "#{@post.id}.jpg"
     image = params[:image]
@@ -60,7 +63,7 @@ def update
   end 
     
 if @post.save    
- flash[:notice] = "ユーザー情報を編集しました"             
+ flash[:notice] = "部屋の情報を編集しました"             
  redirect_to("/posts/#{@post.id}")            
 else            
   render("posts/edit")            
@@ -70,7 +73,7 @@ end
 def destroy
   @post = Post.find(params[:id])
   @post.destroy
-  flash[:notice]="スケジュールを削除しました"
+  flash[:notice]="部屋の情報を削除しました"
   redirect_to :posts
 end
 
@@ -81,8 +84,6 @@ def ensure_correct_user
     redirect_to("/posts/index")
   end
 end
-
-
 end
 
 
